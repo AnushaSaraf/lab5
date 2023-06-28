@@ -838,18 +838,18 @@ void __cxa_guard_release (__guard *g) {*(char *)g = 1;};
 	...
 
 000b48ac <setup>:
- * Author:
  * Date:
  */
 
 // setup() runs once, when the device is first turned on.
-void setup() {
+void setup()
+{
    b48ac:	b510      	push	{r4, lr}
-  pinMode(ledPin, OUTPUT);        // Set LED pin as output
+  pinMode(ledPin, OUTPUT);                        // Set LED pin as output
    b48ae:	2101      	movs	r1, #1
-   b48b0:	2002      	movs	r0, #2
+   b48b0:	2005      	movs	r0, #5
    b48b2:	f000 fe53 	bl	b555c <pinMode>
-  Particle.variable("brightness", ledBrightness);  // Expose brightness variable
+  Particle.variable("brightness", ledBrightness); // Expose brightness variable
 }
    b48b6:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
         return _variable(varKey, (const char*)userVar, userVarType);
@@ -870,11 +870,12 @@ void setup() {
 000b48d0 <loop>:
 
 // loop() runs over and over again, as quickly as it can execute.
-void loop() {
+void loop()
+{
    b48d0:	b508      	push	{r3, lr}
   // Read the light sensor value
   sensorValue = analogRead(lightSensorPin);
-   b48d2:	2013      	movs	r0, #19
+   b48d2:	200e      	movs	r0, #14
    b48d4:	f000 fe53 	bl	b557e <analogRead>
    b48d8:	4b17      	ldr	r3, [pc, #92]	; (b4938 <loop+0x68>)
    b48da:	6018      	str	r0, [r3, #0]
@@ -903,7 +904,7 @@ void loop() {
 
   // Update the LED brightness
   analogWrite(ledPin, ledBrightness);
-   b4912:	2002      	movs	r0, #2
+   b4912:	2005      	movs	r0, #5
    b4914:	f000 fe4a 	bl	b55ac <_Z11analogWritetm>
 
   // Delay before next reading
