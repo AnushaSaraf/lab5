@@ -16,7 +16,7 @@ const int minBrightness = 0;    // Minimum brightness value for LED
 const int maxBrightness = 255;  // Maximum brightness value for LED
 
 // Variables
-int sensorValue = 0;
+int sensorValue = 0; 
 int ledBrightness = 0;
 
 // Function to map a value from one range to another
